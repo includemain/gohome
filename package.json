@@ -1,0 +1,45 @@
+{
+  "private": true,
+  "name": "sub-know-seat",
+  "scripts": {
+    "dev": "cross-env MODE=test max dev",
+    "build:st": "cross-env MODE=test max build",
+    "build:prod": "cross-env MODE=pord max build",
+    "dev:yx": "cross-env UMI_APP_LAYOUT=yx MODE=test max dev",
+    "build:yxst": "cross-env UMI_APP_LAYOUT=yx MODE=test max build",
+    "build:yxprod": "cross-env UMI_APP_LAYOUT=yx MODE=pord max build"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "@ant-design/pro-components": "2.4.4",
+    "@babel/preset-env": "^7.25.4",
+    "@reduxjs/toolkit": "^2.2.3",
+    "@umijs/max": "^4.1.10",
+    "ahooks": "^3.8.4",
+    "antd": "4.24.12",
+    "core-js": "^3.38.1",
+    "cross-env": "^7.0.3",
+    "dayjs": "^1.11.10",
+    "echarts": "^5.5.0",
+    "immer": "^10.1.1",
+    "install": "^0.13.0",
+    "js-cookie": "^3.0.5",
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1",
+    "npm": "^10.9.1",
+    "react-redux": "^9.1.1",
+    "redux": "^5.0.1",
+    "umi-plugin-keep-alive": "^0.0.1-beta.35"
+  },
+  "devDependencies": {
+    "@types/react": "18.0.33",
+    "@types/react-dom": "18.0.11",
+    "es-check": "^7.1.0",
+    "husky": "^9",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.7",
+    "prettier-plugin-organize-imports": "^3.2.2",
+    "prettier-plugin-packagejson": "^2.4.3",
+    "typescript": "^5.0.3"
+  }
+}

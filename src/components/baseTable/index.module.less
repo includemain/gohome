@@ -1,0 +1,200 @@
+.baseTable {
+  :global {
+    .table-header-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 16px;
+
+      .extra-btn {
+        padding: 0px 16px;
+        height: 36px;
+        background: #337bfa;
+        border-radius: 8px;
+      }
+
+      .default-btn {
+        background: #fff;
+        border: 1px solid #337bfa;
+        color: #337bfa;
+      }
+    }
+
+    .ant-table-wrapper .ant-table-thead > tr > th {
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      font-size: 14px;
+      color: #818899;
+      border-bottom: none;
+
+      &::before {
+        width: 0 !important;
+      }
+    }
+
+    .ant-table-header {
+      // 修改筛选和排序布局
+      .ant-table-cell {
+        .ant-table-column-sorters {
+          justify-content: flex-start;
+
+          .ant-table-column-title {
+            flex: none;
+          }
+        }
+
+        .ant-table-filter-column {
+          justify-content: flex-start;
+
+          .ant-table-column-title {
+            flex: none;
+          }
+        }
+      }
+
+      .ant-table-cell-scrollbar:not([rowspan]) {
+        box-shadow: none;
+      }
+
+      .ant-table-cell {
+        padding: 15px 8px !important;
+        background: #f4f7f9 !important;
+      }
+    }
+
+    .ant-table-tbody {
+      tr:nth-child(2n - 1) {
+        background: #f9fbfc;
+        // fixed悬浮的td，也要变色
+        .ant-table-cell-fix-right {
+          background: #f9fbfc;
+        }
+        .ant-table-cell-fix-left {
+          background: #f9fbfc;
+        }
+      }
+
+      tr > td {
+        border: none;
+      }
+
+      .ant-table-cell {
+        padding: 4px 8px !important;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        font-size: 14px;
+        color: #262d34;
+        height: 52px;
+        word-break: break-all;
+      }
+    }
+
+    .footer-page {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .ant-table-body {
+      scrollbar-width: auto;
+      scrollbar-color: auto;
+
+      &::-webkit-scrollbar {
+        /* 竖置滚动条 宽度 */
+        width: 6px;
+        /* 横置滚动条 高度 */
+        // height: 51px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #0000001a;
+        /* 设置背景色为深灰色 */
+        border-radius: 4px;
+        /* 添加边角圆形效果 */
+      }
+
+      &::-webkit-scrollbar-track：设置滚动条轨道（track）的样式。::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+        /* 设置背景色为浅灰色 */
+      }
+
+      &::-webkit-scrollbar-button：设置按钮（button）的样式。::-webkit-scrollbar-button {
+        display: none;
+        /* 隐藏按钮 */
+      }
+
+      .table-btns {
+        display: flex;
+
+        .ant-btn-link {
+          font-family: PingFangSC-Regular;
+          font-weight: 400;
+          font-size: 14px;
+          color: #337bfa !important;
+          margin: 0px;
+          padding: 0px;
+
+          &[disabled] {
+            opacity: 0.4;
+          }
+
+          & + .ant-btn-link {
+            margin: 0 0 0 16px;
+          }
+        }
+
+        .delete {
+          color: #f63a42;
+        }
+      }
+    }
+
+    // 暂无数据样式
+    .ant-spin-nested-loading {
+      height: 100%;
+      .ant-spin-container {
+        height: 100%;
+
+        .ant-table-empty {
+          .ant-table-expanded-row-fixed {
+            display: flex;
+            height: var(--scroll-height);
+            justify-content: center;
+            align-items: center;
+          }
+        }
+        .ant-table-body {
+          height: var(--scroll-height);
+        }
+      }
+    }
+    // 去掉暂无数据时显示的滚动条
+    .ant-table-placeholder
+      > .ant-table-cell:has(.ant-table-expanded-row-fixed) {
+      overflow: hidden !important;
+    }
+
+    .ant-table-filter-trigger {
+      margin: -1px 0px 0px 4px;
+      padding: 0;
+      &:hover {
+        background: transparent;
+      }
+    }
+
+    .ant-pagination {
+      .ant-pagination-prev,
+      .ant-pagination-next {
+        line-height: 0px !important;
+      }
+      .ant-select-selector {
+        min-width: 100px;
+      }
+      .ant-pagination-options-quick-jumper {
+        > input {
+          width: 60px !important;
+          border-radius: 8px !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@mixin cursor {
+    .tabsPack{
+        cursor: pointer;
+    }
+}
+.horizontal,.vertical{
+    .tabs{
+         display: flex;
+    }  
+    @include cursor;
+}
+.vertical {
+    .tabs {
+        flex-direction: column;
+        align-items: center
+    }
+    
+    @include cursor;
+}

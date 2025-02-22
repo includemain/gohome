@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksub_know_seat=self.webpackChunksub_know_seat||[]).push([[390],{96390:function(t,n,e){e.r(n),e.d(n,{default:function(){return c}});e(978);var u=e(92938),s=e(50107);function c(){var t=(0,u.useOutletContext)();return(0,s.jsx)(u.Outlet,{context:t,_nk:"".concat("J27g","11")})}}}]);

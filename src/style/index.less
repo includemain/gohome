@@ -1,0 +1,428 @@
+@import './common.less';
+:root {
+  --background-color: #eeeeee;
+  --primary-color: #337bfa;
+  --danger-color: #f5222d;
+  --primary-bg: #fff;
+  --primary-font-size: 16px;
+  --primary-font-color: rgba(0, 0, 0, 0.85);
+  --label-font-color: rgba(0, 0, 0, 0.65);
+  --no-data-font-color: rgba(0, 0, 0, 0.45);
+  --primary-border: 1px solid #d8d8d8;
+  --primary-border-radius: 4px;
+}
+
+@font-face {
+  font-family: PingfangSC-Medium;
+  src: url('@{ENV_URL}/pingfang/PingfangSC-Medium.ttf');
+}
+
+@font-face {
+  font-family: PingfangSC-Regular;
+  src: url('@{ENV_URL}/pingfang/PingfangSC-Regular.ttf');
+}
+
+@font-face {
+  font-family: PingfangSC-Bold;
+  src: url('@{ENV_URL}/pingfang/PingfangSC-Semibold.ttf');
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: PingFangSC;
+  background: transparent;
+  width: 100% !important;
+}
+
+#root {
+  height: 100%;
+  background: transparent;
+}
+.applayout {
+  height: 100%;
+}
+
+.ant-pro-layout-bg-list {
+  background: transparent !important;
+}
+
+/**
+  存放常用的全局css方法，该文件的类，不使用 css modules 规则
+ */
+.flex {
+  display: flex;
+}
+
+.flex-center-v {
+  display: flex;
+  align-items: center;
+}
+
+.flex-center-h {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-center-vh {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.flex-direction-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.margin-left-auto {
+  margin-left: auto;
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/*文本超出部分用省略号显示*/
+.text-ellipsis-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*2行文本超出部分用省略号显示*/
+.text-ellipsis-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/*3行文本超出部分用省略号显示*/
+.text-ellipsis-3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+a,
+a:active,
+a:hover,
+a:focus,
+a:focus-within {
+  text-decoration: none;
+  outline: 0;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #0000001a;
+  border-radius: 4px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// 所有primary按钮颜色
+// .ant-btn-primary {
+//     background: #337BFA !important;
+// }
+
+// 模拟必填样式
+.pseudo-form-item-requerd {
+  .ant-form-item-label {
+    > label {
+      &::before {
+        display: inline-block;
+        margin-right: 4px;
+        color: #ff4d4f;
+        font-size: 14px;
+        font-family: SimSun, sans-serif;
+        line-height: 1;
+        content: '*';
+      }
+    }
+  }
+}
+
+.ant-pro-layout .ant-pro-layout-content {
+  background-color: #f0f6ff;
+}
+
+.ant-btn-background-ghost.ant-btn-primary:hover,
+.ant-btn-background-ghost.ant-btn-primary:focus {
+  color: #337bfa;
+  border-color: #337bfa;
+}
+
+// 下拉框内，展开/收起和勾选框对宽度的侵占过大，缩小间距
+.ant-select-tree-list {
+  .ant-select-tree-indent-unit {
+    width: 12px;
+  }
+}
+
+// .ant-btn:hover,
+
+// 这里放到全局变量
+/*表格的下拉框*/
+
+.ant-table-filter-dropdown {
+  width: 180px;
+  background: #ffffff;
+  box-shadow: 0 10px 48px 0 #0000001f;
+  border-radius: 16px !important;
+  overflow: hidden;
+
+  .ant-tree-list-holder {
+    > div {
+      max-height: 200px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+  }
+
+  .table-filter-menu {
+    padding: 12px 2px 12px 12px;
+
+    > .ant-input-affix-wrapper {
+      width: calc(100% - 10px);
+      margin-bottom: 8px;
+      border-radius: 8px;
+    }
+
+    .ant-tree-switcher {
+      display: none;
+    }
+
+    .ant-tree-treenode {
+      min-height: 34px;
+      background: #fff;
+      border-radius: 3px;
+      padding: 0 8px;
+      padding-top: 5px;
+      word-break: break-all;
+      &:hover {
+        background: #f4f8fe;
+      }
+    }
+
+    .ant-tree-node-content-wrapper {
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      font-size: 14px;
+      color: #262d34;
+      letter-spacing: 0;
+    }
+    .ant-tree-node-content-wrapper.ant-tree-node-selected {
+      background: transparent;
+      .ant-tree-title {
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        font-size: 14px;
+        color: #337bfa;
+        letter-spacing: 0;
+      }
+    }
+  }
+ 
+
+  
+  .filter-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: calc(100% - 10px);
+  }
+}
+
+
+// 修改树节点选中背景颜色
+.remind-tree-select{
+  .ant-tree-select-dropdown {
+  width: 180px;
+  background: #ffffff;
+  box-shadow: 0 10px 48px 0 #0000001f;
+  border-radius: 16px !important;
+  overflow: hidden;
+  .ant-select-tree-list-holder {
+    > div {
+      max-height: 200px !important;
+      overflow: auto !important;
+      padding-right: 4px;
+    }
+  }
+
+
+    .ant-select-tree-treenode {
+      background: #fff;
+      border-radius: 3px;
+      padding: 0 8px;
+      padding-top: 5px;
+      word-break: break-all;
+      &:hover {
+        background: #f4f8fe;
+      }
+
+    .ant-select-tree-node-content-wrapper.ant-select-tree-node-selected {
+      background: transparent;
+      .ant-select-tree-title {
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        font-size: 14px;
+        color: #337bfa !important;
+        letter-spacing: 0;
+      }
+    }
+  }
+}
+}
+
+
+
+
+// 表格中鼠标移如使用popover形式展示信息，popover公共样式
+.popover-container {
+  border-radius: 12px;
+  padding-top: 0 !important;
+
+  .ant-popover-arrow {
+    display: none;
+  }
+
+  .ant-popover-content {
+    max-width: 400px;
+    background: #ffffff;
+    box-shadow: 0 7px 19px 0 #00000014;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .ant-popover-inner-content {
+    padding: 12px;
+  }
+}
+
+// 通话记录popover弹出框
+.question-desc-popover {
+  .desc-item {
+    font-size: 14px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    letter-spacing: 0;
+    display: flex;
+    line-height: 20px;
+
+    &::before {
+      content: '#';
+      height: 16px;
+      width: 4px;
+      color: #337bfa;
+      width: 10px;
+    }
+
+    .identify {
+      color: #337bfa;
+      flex: 0 0 10px;
+    }
+
+    .text {
+      color: #818899;
+      flex: 1;
+      word-break: break-all;
+    }
+  }
+  .problem {
+    color: #152c5b;
+  }
+}
+
+// 通话记录popover 业务标签
+.tag-busi-popover {
+  .tag-item {
+    min-height: 28px;
+    background: #eaf1fe;
+    border-radius: 4px;
+    padding: 0 8px;
+    .text {
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      font-size: 14px;
+      color: #337bfa;
+      letter-spacing: 0;
+      text-align: left;
+      line-height: 28px;
+    }
+  }
+}
+
+// 直接使用函数调出的confirm警告框
+.ant-modal-confirm.ant-modal-confirm-confirm {
+  .ant-modal-content {
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 10px 48px 0 #0000001a;
+    border-radius: 16px;
+  }
+
+  .ant-modal-confirm-btns {
+    .ant-btn {
+      height: 32px;
+      border-radius: 8px;
+    }
+  }
+}
+
+.delete-modal-content {
+  .ant-modal-body {
+    height: 176px;
+    background: #ffffff;
+    box-shadow: 0 10px 48px 0 #0000001a;
+    border-radius: 16px;
+  }
+
+  .ant-modal-confirm-body-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    .ant-modal-confirm-body {
+      flex: 1;
+    }
+  }
+}
+
+// 规范中的警告提示，强提示使用deleteModal弹框，弱提示，使用wran，背景颜色变黄
+.warn-message-notice-content {
+  > div {
+    background: #fffbe6;
+    border: 1px solid #fff1b8;
+    border-radius: 8px;
+  }
+}
+

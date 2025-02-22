@@ -1,0 +1,986 @@
+// 这里的样式从企微复制过来的，有的有用
+
+// 主页面的最外层box--通话记录表格中用到了
+.main-box {
+  overflow: auto;
+  background-color: #fff;
+  overflow: auto;
+  padding: 20px 24px 20px 24px;
+  height: 100%;
+  .box-title {
+    font-family: PingfangSC-bold;
+    font-size: 24px;
+    font-weight: 600;
+    color: #152c5b;
+    line-height: 32px;
+    padding: 4px 0px 22px 0px;
+  }
+
+  .main-content {
+    display: flex;
+    flex-wrap: nowrap;
+    height: calc(100% - 58px);
+    .flex-list {
+      width: 100%;
+      // flex: 1;
+    }
+  }
+
+  .ant-form-item-control-input-content,
+  .ant-select-selector,
+  .ant-input {
+    height: 36px !important;
+    min-width: 200px;
+
+    .ant-select-selection-item-remove {
+      line-height: 22px;
+    }
+  }
+}
+
+// 类似坐席加粉的页面，左侧有侧边栏时
+.main-box.sider-box {
+  padding-left: 0px;
+  padding-bottom: 0px;
+
+  .box-title {
+    padding-left: 24px;
+  }
+
+  .main-content {
+    display: flex;
+    flex-wrap: nowrap;
+    height: calc(100% - 58px);
+
+    .flex-list {
+      padding-bottom: 24px;
+      width: calc(100% - 260px);
+    }
+
+    .flex-sider {
+      flex: 0 0 232px;
+    }
+  }
+}
+
+// 悬浮显示操作菜单按钮
+.sider-bar-menu {
+  min-width: 96px;
+  background: #fff;
+  padding: 8px;
+  border-radius: 12px;
+
+  .ant-dropdown-menu-item {
+    border-radius: 9px;
+    height: 32px;
+    color: #818899;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+
+    &:hover {
+      background: #f4f8fe;
+      color: #1578ff;
+    }
+  }
+}
+
+@bordercolor: #dce0e6;
+@bluecolor: #337bfa;
+@wenzicolor: #b8bfcc;
+@wenzideepcolor: #818899;
+@titlecolor: #152c5b;
+
+/** --组件通用样式混入--，好像没有用了 **/
+// button混入
+.btnminix {
+  .ant-btn {
+    height: 36px !important;
+    color: #9ca7bd;
+    border-color: @bordercolor;
+  }
+  .ant-btn-primary {
+    color: #fff;
+    background-color: @bluecolor;
+    border-color: @bluecolor;
+  }
+  .ant-btn-link,
+  .ant-btn-background-ghost {
+    color: @bluecolor !important;
+  }
+  .ant-btn-link {
+    border: none;
+  }
+}
+// input混入
+.inputminx() {
+  .ant-input {
+    border-color: @bordercolor !important;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #152c5b;
+  }
+
+  .ant-form-item-has-error .ant-input,
+  .ant-form-item-has-error .ant-input-affix-wrapper,
+  .ant-form-item-has-error .ant-input:hover,
+  .ant-form-item-has-error .ant-input-affix-wrapper:hover {
+    border-color: @bordercolor !important;
+    box-shadow: none;
+  }
+
+  .ant-input[disabled] {
+    // color: #818899;
+    color: #0000009c;
+    font-family: PingFangSC-Regular;
+  }
+  // 置灰时，前缀颜色
+  .ant-input-affix-wrapper-disabled {
+    .ant-input-prefix {
+      color: #818899;
+    }
+  }
+  .ant-input-textarea-show-count {
+    position: relative;
+  }
+  .ant-input-textarea-show-count::after {
+    position: absolute;
+    bottom: 25px;
+    right: 10px;
+    color: @wenzideepcolor;
+  }
+  .ant-input:focus,
+  .ant-input-affix-wrapper:focus,
+  .ant-input-affix-wrapper:hover {
+    box-shadow: none;
+    border-color: @bordercolor !important;
+  }
+  input::-webkit-input-placeholder {
+    /* WebKit browsers，webkit内核浏览器 */
+    color: @wenzicolor;
+  }
+  input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: @wenzicolor;
+  }
+  input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: @wenzicolor;
+  }
+  input:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: @wenzicolor;
+  }
+  textarea::-webkit-input-placeholder {
+    /* WebKit browsers，webkit内核浏览器 */
+    color: @wenzicolor;
+  }
+  textarea:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: @wenzicolor;
+  }
+  textarea::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: @wenzicolor;
+  }
+  textarea:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: @wenzicolor;
+  }
+}
+// select混入
+.selectminx() {
+  .ant-select-selector {
+    border-color: @bordercolor !important;
+  }
+  .ant-select-selection-placeholder {
+    color: @wenzicolor;
+  }
+  .ant-select-focused {
+    .ant-select-selector {
+      box-shadow: none !important;
+    }
+  }
+}
+
+// 表格上方搜索表单和按钮 -- 这个在表格中使用，重要
+.table-header-search {
+  .inputminx();
+
+  .selectminx();
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  .wrap-box {
+    display: flex;
+  }
+
+  .ant-form-item {
+    margin-right: 0 !important;
+
+    .ant-form-item-label > label {
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      font-size: 14px;
+      color: #262d34;
+      letter-spacing: 0;
+      line-height: 36px;
+      height: 36px; // 外面为42px，是否可以删掉
+    }
+
+    .ant-calendar-picker-input.ant-input {
+      line-height: 28px;
+    }
+
+    // .ant-input[disabled] {
+    //     // color: #818899;
+    //     color: #0000009c;
+    //     font-family: PingFangSC-Regular;
+    // }
+
+    .ant-calendar-picker-input.ant-input,
+    .ant-form-item-control-input-content,
+    .ant-select-selector,
+    .ant-input-affix-wrapper,
+    .ant-input,
+    .ant-input-number,
+    .ant-picker-range {
+      height: 36px !important;
+      min-width: 200px;
+      border-radius: 8px;
+
+      .ant-select-selection-item-remove {
+        line-height: 22px;
+      }
+    }
+
+    .ant-select-single {
+      .ant-select-selector {
+        border-radius: 8px;
+      }
+      .ant-select-selection-item {
+        line-height: 34px;
+      }
+      .ant-select-selection-placeholder {
+        line-height: 34px;
+      }
+      .ant-select-arrow {
+        top: 53%;
+        svg {
+          width: 20px !important;
+          height: 10px !important;
+        }
+      }
+    }
+
+    .ant-tree-select .ant-select-selector {
+      border-radius: 8px;
+    }
+  }
+
+  .search-option {
+    .ant-btn {
+      height: 36px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .search-btn {
+      border: 1px solid #337bfa;
+      color: #337bfa;
+      margin-right: 8px;
+    }
+
+    .search-reset {
+      color: #9ca7bd;
+      border-color: #dce0e6;
+
+      &:hover {
+        border-color: #337bfa;
+      }
+    }
+  }
+
+  .handle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    > * {
+      cursor: pointer;
+    }
+    > * + * {
+      margin-left: 8px;
+    }
+    .download {
+      width: 20px;
+      height: 20px;
+      > img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.largeForIitemControl() {
+  .inputminx();
+  .selectminx();
+
+  .ant-form-item-control-input-content,
+  .ant-select-selector,
+  .ant-input {
+    height: 48px !important;
+    min-width: 200px;
+    .ant-select-selection-item-remove {
+      line-height: 22px;
+    }
+  }
+
+  .ant-form-item-label > label {
+    height: 48px;
+  }
+
+  // 光标与placeholder不一致，先这样
+  .ant-input {
+    // line-height: 49px;
+  }
+
+  .ant-input-textarea .ant-input {
+    line-height: 28px;
+  }
+
+  .ant-select-multiple {
+    .ant-select-selection-overflow-item-suffix {
+      line-height: 32px;
+    }
+    .ant-select-selection-overflow {
+      .ant-select-selection-item {
+        background: #f4f7f9;
+        border-radius: 6px;
+        padding: 3px 6px;
+        height: 28px;
+
+        .ant-select-selection-item-remove {
+          font-size: 9px;
+          color: #dce0e6;
+          line-height: 20px;
+        }
+      }
+      // .ant-select-selection-overflow-item {
+      //     // margin-right: 0px;
+      //     // margin-left: 4px;
+      // }
+      .ant-select-selection-overflow-item:not(
+          .ant-select-selection-overflow-item-suffix
+        ) {
+        &:first-child {
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+  .ant-select-single {
+    &:not(.ant-select-customize-input)
+      .ant-select-selector
+      .ant-select-selection-search-input {
+      height: 44px;
+    }
+    .ant-select-selection-placeholder {
+      line-height: 48px;
+    }
+    .ant-select-selection-item {
+      line-height: 46px;
+    }
+
+    .ant-select-arrow {
+      top: 53%;
+      svg {
+        width: 20px !important;
+        height: 10px !important;
+      }
+    }
+  }
+}
+
+/** --通用样式独立class-- **/
+.own-modal {
+  background: #ffffff;
+  border-radius: 20px;
+  // .selectminx(48px);
+  // .inputminx(48px);
+  .ant-modal-content {
+    // background-image: url("@/assets/modal_bg.png");
+    background-image: linear-gradient(180deg, #d7e5fd 0%, #ffffff 66px);
+    padding-top: 14px;
+    background-repeat: no-repeat;
+    background-position: top;
+    // .largeForIitemControl();
+  }
+  .ant-modal-content,
+  .ant-modal-footer,
+  .ant-modal-header {
+    border-radius: 20px;
+    border: none;
+    box-shadow: none;
+  }
+  .ant-modal-header {
+    background-color: transparent;
+    padding: 18px 24px 24px 24px;
+  }
+  .ant-modal-title {
+    // color: @titlecolor;
+    font-family: PingfangSC-bold;
+    font-weight: 600;
+    font-size: 18px;
+    color: #152c5b;
+    letter-spacing: 0;
+    line-height: 24px;
+  }
+  .ant-modal-close-x {
+    position: absolute;
+    margin: 0 !important;
+    right: 24px;
+    top: 12px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .ant-modal-body {
+    padding-top: 0px;
+  }
+
+  .ant-form-item-label > label {
+    color: @wenzideepcolor;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    font-size: 14px;
+    color: #818899;
+    letter-spacing: 0;
+    // height: 48px;
+  }
+
+  .ant-modal-footer {
+    padding: 0px 24px 8px 24px;
+    .ant-btn {
+      height: 32px;
+      // line-height: 32px;
+      border-radius: 8px;
+      // color: #9CA7BD;
+      // border-color: @bordercolor;
+    }
+  }
+
+  &.reset {
+    .ant-modal-close {
+      display: none;
+    }
+    .ant-modal-footer {
+      > div {
+        .ant-btn {
+          &:first-child {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// tag标签共有6种状态
+.tag-box-status {
+  height: 22px;
+  line-height: 20px;
+  border-radius: 4px;
+  display: inline-block;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: center;
+  font-size: 12px;
+  font-family: PingFangSC-Regular;
+}
+// 4.数据展示/浅色/松绿色
+.mid-green {
+  background: #FFFFFF;
+  border: 1px solid #0CBB98;
+  color: #0CBB98;
+}
+// 4.数据展示/状态标签/灰色
+.disabled-gray {
+  background: #FFFFFF;
+  border: 1px solid #C2C2C2;
+  color: #C2C2C2;
+}
+
+// 正在进行中
+.tag-orange {
+  background: #fffaf3;
+  border: 1px solid #ff9800;
+  color: #ff9800;
+}
+
+// 等待开始
+.tag-blue {
+  background: #f5f8ff;
+  border: 1px solid #337bfa;
+  color: #337bfa;
+}
+
+// 成功
+.tag-green {
+  background: #f6ffed;
+  border: 1px solid #52c41a;
+  color: #52c41a;
+}
+
+// 部分成功
+.tag-purple {
+  background: #f9f8ff;
+  border: 1px solid #7f6fff;
+  color: #7f6fff;
+}
+
+// 置灰
+.tag-grey {
+  background: #fcfcfc;
+  border: 1px solid #c2c2c2;
+  color: #c2c2c2;
+}
+
+// 被删除
+.tag-red {
+  background: #fff6f6;
+  border: 1px solid #f53f3f;
+  color: #f53f3f;
+}
+
+// 被删除
+.tag-info {
+  padding: 1px 8px;
+  font-family: 'PingFangSC-Regular';
+  font-weight: 400;
+  font-size: 12px;
+  color: #262d34;
+  text-align: justify;
+  line-height: 20px;
+  background: #f4f7f9;
+  border-radius: 4px;
+  height: 22px;
+}
+
+// modal框展示可以搜索的表格详情
+.modal-table-detail.ant-modal {
+  background: #ffffff;
+  border-radius: 20px;
+  padding-bottom: 12px;
+
+  .ant-modal-content,
+  .ant-modal-footer,
+  .ant-modal-header {
+    border-radius: 20px;
+    border: none;
+    box-shadow: none;
+    padding: 0; // vue-antd没有
+    margin: 0; // vue-antd没有
+  }
+
+  .ant-modal-header {
+    background-color: transparent;
+    padding: 30px 24px 20px 24px;
+  }
+
+  .ant-modal-title {
+    font-family: PingFangSC-Bold;
+    font-weight: 600;
+    font-size: 18px;
+    color: #152c5b;
+  }
+
+  .ant-modal-close-x {
+    // display: none;
+    margin: 12px 12px 0 0;
+    > span {
+      color: #000;
+      font-size: 18px;
+    }
+  }
+
+  .ant-modal-body {
+    padding: 0px 24px 0px 24px;
+  }
+
+  .ant-modal-footer {
+    padding: 20px 24px;
+
+    .ant-btn {
+      width: 60px;
+      height: 32px;
+      border-radius: 8px;
+    }
+  }
+}
+
+// vertical布局时，表单控件高度全部为48px时的样式
+.large-form-vertical {
+  .ant-form-item {
+    .ant-form-vertical .ant-form-item-label {
+      padding: 0;
+    }
+
+    .ant-form-item-label > label {
+      height: 20px;
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      font-size: 14px;
+      color: #818899;
+      letter-spacing: 0;
+      margin-bottom: 12px;
+    }
+
+    .largeForIitemControl();
+  }
+
+  .bottom-desc {
+    .ant-form-item-control {
+      padding-bottom: 0;
+    }
+  }
+  .bottom-info {
+    padding-left: 16px;
+    padding-bottom: 24px;
+  }
+  .bottom-label {
+    .ant-form-item-control {
+      height: 32px !important;
+      padding-bottom: 0;
+    }
+  }
+
+  .option-btns {
+    .ant-btn {
+      padding-left: 18px;
+      padding-right: 18px;
+      height: 36px;
+    }
+
+    .cancel-btn {
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      font-size: 14px;
+      color: #666666;
+      text-align: center;
+    }
+
+    .sub-btn {
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      font-size: 14px;
+      color: #ffffff;
+      text-align: center;
+    }
+  }
+}
+
+.tag-select-collapse {
+  // height: 242px;
+  background: #ffffff;
+  overflow: auto;
+  // padding: 16px;
+  // margin-right: 4px;
+  .ant-collapse-header {
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    font-size: 14px;
+    color: #152c5b;
+    padding: 4px 0px 4px 30px;
+
+    .ant-collapse-arrow {
+      font-size: 14px;
+      color: #a9a6a6;
+      left: 8px;
+    }
+  }
+
+  .ant-collapse-item {
+    border-bottom: none;
+  }
+
+  .ant-collapse-content {
+    > .ant-collapse-content-box {
+      padding: 4px 0px 16px 0px;
+    }
+    .tag-box {
+      text-align: center;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 14px;
+      margin: 4px;
+      height: 26px;
+    }
+
+    .tag-box-un-checked {
+      color: #262d34;
+      background-color: #f4f7f9;
+    }
+    .tag-box-checked {
+      color: #337bfa;
+      background: #f4f8fe;
+    }
+  }
+}
+
+// 下拉框内容过多时，滚动条偏离4px
+.ant-select-dropdown {
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 10px 48px 0 #0000001f;
+  padding: 16px;
+  padding-right: 4px;
+
+  .ant-select-dropdown-content {
+    max-height: 400px;
+    overflow: auto;
+    padding-right: 8px;
+  }
+}
+
+// 树形下拉框，滚动条偏离4px
+.ant-select-tree-dropdown {
+  > div {
+    max-height: 400px;
+    overflow: auto;
+  }
+}
+
+// 一下为一定有用的
+
+// 问卷类弹框
+.naira-modal.ant-modal {
+  .ant-modal-content {
+    padding: 30px 4px 0px 32px;
+    border-radius: 20px;
+    .ant-modal-header {
+      background: transparent;
+      margin-right: 44px;
+      margin-bottom: 18px;
+      padding: 0;
+      border-bottom: none;
+      .ant-modal-title {
+        text-align: center;
+      }
+    }
+
+    .ant-modal-body {
+      padding: 0;
+    }
+    .ant-modal-footer {
+      border-top: none;
+    }
+  }
+}
+
+// 有些弹框顶部有一个蓝色渐变
+.ant-modal.header-top-linear {
+  .ant-modal-content {
+    .ant-modal-header {
+      background: transparent;
+    }
+    padding-top: 30px;
+    background-image: linear-gradient(180deg, #ecf3ff 0%, #ffffff 120px);
+  }
+}
+
+// 有些弹框右上方有图片的问卷
+.ant-modal.naira-top-linear-img {
+  .ant-modal-content {
+    background-image: linear-gradient(#ecf3ff 0%, rgba(255, 255, 255, 0) 17%),
+      url('@/assets/wenjuan.png');
+    background-position: top right;
+    background-repeat: no-repeat;
+  }
+}
+
+// 客户标签
+.ant-modal.label-detail-top-linear-img {
+  .ant-modal-content {
+    background-image: linear-gradient(#ecf3ff 0%, rgba(255, 255, 255, 0) 17%),
+      url('@/assets/label-detail.png');
+    background-position: top right;
+    // background-size: 146px 152px;
+    background-repeat: no-repeat;
+  }
+}
+
+// 开户信息
+.ant-modal.acc-top-linear-img {
+  .ant-modal-content {
+    background-image: linear-gradient(#ecf3ff 0%, rgba(255, 255, 255, 0) 17%),
+      url('@/assets/acc-bg-modal.png');
+    background-position: top right;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+  }
+}
+
+// 什么玩意七七乖乖,日期弹框中选项乱了
+.ant-picker-time-panel-column {
+  flex-direction: column;
+}
+
+// draw抽屉弹框样式
+.own-draw-modal {
+  .ant-drawer-header {
+      border-bottom: none;
+
+      .ant-drawer-title {
+        font-family: PingFangSC-SNaNpxibold;
+        font-weight: 600;
+        font-size: 18px;
+        color: #222222;
+      }
+  }
+
+  .ant-drawer-content {
+    background-image: linear-gradient(#ecf3ff 0%, rgba(255, 255, 255, 0) 17%),
+    url('@/assets/drawer-bg.png');
+    background-position: top right;
+    background-repeat: no-repeat;
+
+    .ant-drawer-body {
+      padding-right: 0;
+    }
+  }
+}
+.blue-color,.red-color,.green-color,.gray-color,.red-color-bg{
+  width:52px;
+  height: 22px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 20px;
+}
+.blue-color{
+  background-color: #f5f8ff;
+  border:1px solid #337bfa;
+  color:#337bfa;
+}
+.green-color{
+  background-color: #f6ffed;
+  border:1px solid #52c41a;
+  color:#52c41a;
+}
+.red-color{
+  background-color: #ffffff;
+  border:1px solid #f53f3f;
+  color:#f53f3f;
+}
+
+.red-color-bg{
+  background-color: #FFF6F6;
+  border:1px solid #f53f3f;
+  color:#f53f3f;
+}
+
+.gray-color {
+  width: 52px;
+  height: 22px;
+  background: #FFFFFF;
+  border: 1px solid #DAE1EC;
+  color:#DAE1EC;
+}
+
+
+// 全局默认的样式，上面的混入好像不管用
+.form-common-style {
+
+  .ant-form-item {
+    margin-right: 0 !important;
+
+    .ant-form-item-label > label {
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      font-size: 14px;
+      color: #262d34;
+      letter-spacing: 0;
+      line-height: 36px;
+      height: 36px; // 外面为42px，是否可以删掉
+    }
+
+    .ant-calendar-picker-input.ant-input {
+      line-height: 28px;
+    }
+
+    // .ant-input[disabled] {
+    //     // color: #818899;
+    //     color: #0000009c;
+    //     font-family: PingFangSC-Regular;
+    // }
+
+    .ant-calendar-picker-input.ant-input,
+    .ant-form-item-control-input-content,
+    .ant-select-selector,
+    .ant-input-affix-wrapper,
+    .ant-input:not(textarea),
+    .ant-input-number,
+    .ant-picker-range {
+      height: 36px !important;
+      min-width: 200px;
+      border-radius: 8px;
+
+      .ant-select-selection-item-remove {
+        line-height: 22px;
+      }
+    }
+
+    textarea.ant-input  {
+      border-radius: 8px;
+    }
+
+    .ant-select-single {
+      .ant-select-selector {
+        border-radius: 8px;
+      }
+      .ant-select-selection-item {
+        line-height: 34px;
+      }
+      .ant-select-selection-placeholder {
+        line-height: 34px;
+      }
+      .ant-select-arrow {
+        top: 53%;
+        svg {
+          width: 20px !important;
+          height: 10px !important;
+        }
+      }
+    }
+
+    .ant-tree-select .ant-select-selector {
+      border-radius: 8px;
+    }
+  }
+
+  .search-option {
+    .ant-btn {
+      height: 36px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .search-btn {
+      border: 1px solid #337bfa;
+      color: #337bfa;
+      margin-right: 8px;
+    }
+
+    .search-reset {
+      color: #9ca7bd;
+      border-color: #dce0e6;
+
+      &:hover {
+        border-color: #337bfa;
+      }
+    }
+  }
+}

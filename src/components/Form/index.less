@@ -1,0 +1,37 @@
+@middleHeight: 36px; //中等高度
+
+.form-search-style{
+    width: 100%;
+    padding-bottom: 16px;
+    margin: 0;
+    .ant-form-item-label>label{
+        height: @middleHeight;
+    }
+    .ant-form{
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        .ant-form-item-row{
+          width: 320px;
+          margin-right: 20px;
+          height: 36px;
+        }
+        .ant-form-item{
+            margin-bottom: 0;
+        }
+    }
+    .ant-btn{
+        margin-right: 8px;
+        height: 36px;
+        // padding: 16px;
+    }
+    .ant-select{
+        height: 36px;
+    }
+    .ant-picker {
+        height: 36px;
+        input::placeholder {
+            font-size: 14px;
+        }
+    }
+}
