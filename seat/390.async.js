@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksub_know_seat=self.webpackChunksub_know_seat||[]).push([[390],{96390:function(t,e,n){n.r(e),n.d(e,{default:function(){return c}});n(978);var u=n(92938),s=n(50107);function c(){var t=(0,u.useOutletContext)();return(0,s.jsx)(u.Outlet,{context:t,_nk:"".concat("e9ch","11")})}}}]);
